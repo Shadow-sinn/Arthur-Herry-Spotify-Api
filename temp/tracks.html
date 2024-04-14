@@ -1,0 +1,21 @@
+{{define "tracks"}}
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tracks</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/assets/css/tracks.css">
+    </head>
+    <body>
+        {{template "header"}}
+        {{range .Results}}
+            <div>
+                <a class="tracks_a" href="/track?t={{.Id}}"><h1>{{.Title}}</h1></a>
+                <a class="tracks_a" href="/album?a={{.Album.Id}}"><p>{{.Album.Title}}</p></a>
+            </div>
+        {{end}}
+        {{template "footer"}}
+    </body>
+</html>
+{{end}}

@@ -1,0 +1,24 @@
+{{define "album"}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>La Binouz</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/assets/css/album.css">
+    </head>
+    <body>
+        {{template "header"}}
+            <h1 class="album_a">{{.Result.Title}}</h1>
+            <p class="album"><a class="album_a" hre="/artist?a={{.Result.Artist.Id}}">{{.Result.Artist.Name}}</a></p>
+            <a class="album_a" href="/AddToFav/Album?a={{.Result.Id}}">Ajouter aux favoris</a>
+            {{range .Tracklist.Tracks}}
+            <div>
+                <a class="album_a" href="/track?t={{.Id}}"><h3>{{.Title}}</h3></a>
+            </div>
+            {{end}}
+        {{template "footer"}}
+    </body>
+</html>
+{{end}}

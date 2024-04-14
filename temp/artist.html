@@ -1,0 +1,28 @@
+{{define "artist"}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/artist.css">
+    </head>
+    <body>
+    
+            <h1>{{.Artist.Name}}</h1>
+            {{with index .Artist.Images 0}}
+            <img src="{{.URL}}" alt="">
+            {{end}}
+            <p>{{.Artist.Followers.Total}}</p>
+            {{range .ArtisTracks.Tracks}}
+            {{.Name}}
+            {{range .Album.Images}}
+            <img src="{{.URL}}" alt="">
+            {{break}}
+            {{end}}
+            {{.DurationMs}}
+            {{end}}
+    </body>
+</html>
+{{end}}
